@@ -1,4 +1,4 @@
-"""Csv creation user class creation"""
+"""DB creation user class creation"""
 
 from tkinter import messagebox
 

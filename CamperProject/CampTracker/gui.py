@@ -412,10 +412,13 @@ class BuildGUI:
 
     def perform_search(self):
         """Handle the search button click."""
-        # Add id column to results for delete function and prevent duplicate campers
-        self.tree.column("id", width=0)
         if self.tree is None:
             return
+        # Add id column to results for delete function and prevent duplicate campers
+        try:
+            self.tree.column("id", width=0)
+        except Exception:
+            pass  # in case column("id") doesn't exist yet, suppress error
         for item in self.tree.get_children():
             self.tree.delete(item)
         name = self.search_name.get().strip()
